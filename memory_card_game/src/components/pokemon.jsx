@@ -41,9 +41,12 @@ function Pokemon() {
         // console.log("items after shuffle:", shuffled);
 
         if (!clickedItems.includes(clickedNum)) {
+            const newScore = clickedItems.length + 1;
             setClickedItems((prev) => [...prev, clickedNum]);
+            if (newScore > total) {
+                setTotal(newScore);
+            }
         } else {
-            setTotal(clickedItems.length);
             setClickedItems([]);
         }
     };
